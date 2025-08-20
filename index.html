@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Certificado - Cenedco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 420px;
+            padding: 28px 22px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        
+        .logo {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #3498db 0%, #2c80c5 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 18px;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.25);
+        }
+        
+        .logo i {
+            font-size: 42px;
+            color: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .status {
+            color: #3498db;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+        
+        .message {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 14px;
+            margin: 18px 0;
+            text-align: center;
+            border-radius: 6px;
+        }
+        
+        .message p {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .details {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 18px 0;
+        }
+        
+        .detail-item {
+            padding: 10px 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-width: 110px;
+        }
+        
+        .detail-item h3 {
+            color: #7f8c8d;
+            font-size: 13px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .detail-item p {
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .footer {
+            margin-top: 22px;
+            padding-top: 14px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .user {
+            display: flex;
+            align-items: center;
+            color: #3498db;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes checkmark {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .logo {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        .logo i {
+            animation: checkmark 0.5s ease-out forwards;
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+        
+        .container {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive mejorado para móviles */
+        @media (max-width: 480px) {
+            .container {
+                padding: 22px 18px;
+                margin: 12px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .status {
+                font-size: 16px;
+                margin-bottom: 18px;
+            }
+            
+            .details {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+            
+            .detail-item {
+                width: 100%;
+                max-width: 220px;
+                margin: 0 auto;
+                padding: 12px;
+            }
+            
+            .footer {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            .user {
+                justify-content: center;
+                margin-top: 8px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .container {
+                padding: 18px 14px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .logo {
+                width: 75px;
+                height: 75px;
+            }
+            
+            .logo i {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <i class="fas fa-check"></i>
+        </div>
+        
+        <h1>Verificación de Certificado</h1>
+        <div class="status">Certificado Validado</div>
+        
+        <div class="message">
+            <p>Certificado verificado y autenticado oficialmente.</p>
+            <p>La información es válida y se encuentra registrada.</p>
+        </div>
+        
+        <div class="details">
+            <div class="detail-item">
+                <h3>Estado</h3>
+                <p>Verificado</p>
+            </div>
+            <div class="detail-item">
+                <h3>Validez</h3>
+                <p>Certificado</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="brand">
+                Sistema de Validación
+            </div>
+            <div class="user">
+                <i class="fas fa-check-circle"></i>
+                <span style="margin-left: 6px;">@cenedco</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            logo.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
