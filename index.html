@@ -27,7 +27,7 @@
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 420px;
+            max-width: 450px;
             padding: 28px 22px;
             text-align: center;
             position: relative;
@@ -38,13 +38,13 @@
         .logo {
             width: 85px;
             height: 85px;
-            background: linear-gradient(135deg, #3498db 0%, #2c80c5 100%);
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto 18px;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.25);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.25);
         }
         
         .logo i {
@@ -60,7 +60,7 @@
         }
         
         .status {
-            color: #3498db;
+            color: #27ae60;
             font-size: 18px;
             font-weight: 500;
             margin-bottom: 22px;
@@ -68,7 +68,7 @@
         
         .message {
             background-color: #f8f9fa;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid #27ae60;
             padding: 14px;
             margin: 18px 0;
             text-align: center;
@@ -84,29 +84,32 @@
         
         .details {
             display: flex;
-            justify-content: center;
-            gap: 16px;
+            flex-direction: column;
+            gap: 12px;
             margin: 18px 0;
         }
         
         .detail-item {
-            padding: 10px 12px;
+            padding: 12px;
             background: #f8f9fa;
             border-radius: 8px;
-            min-width: 110px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .detail-item h3 {
             color: #7f8c8d;
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-size: 14px;
             font-weight: 500;
+            text-align: left;
         }
         
         .detail-item p {
             color: #2c3e50;
             font-weight: 600;
             font-size: 14px;
+            text-align: right;
         }
         
         .footer {
@@ -133,9 +136,18 @@
         
         /* Animaciones */
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 5px 15px rgba(46, 204, 113, 0.25);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+            }
+            100% { 
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(46, 204, 113, 0.25);
+            }
         }
         
         @keyframes checkmark {
@@ -180,17 +192,15 @@
                 margin-bottom: 18px;
             }
             
-            .details {
+            .detail-item {
                 flex-direction: column;
-                gap: 10px;
-                align-items: center;
+                gap: 5px;
+                text-align: center;
             }
             
-            .detail-item {
-                width: 100%;
-                max-width: 220px;
-                margin: 0 auto;
-                padding: 12px;
+            .detail-item h3,
+            .detail-item p {
+                text-align: center;
             }
             
             .footer {
@@ -246,7 +256,11 @@
             </div>
             <div class="detail-item">
                 <h3>Validez</h3>
-                <p>Certificado</p>
+                <p>Académico</p>
+            </div>
+            <div class="detail-item">
+                <h3>Institución</h3>
+                <p>Centro Nacional de Educación Continua</p>
             </div>
         </div>
         
@@ -265,10 +279,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.querySelector('.logo');
             logo.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.1)';
+                this.style.animation = 'pulse 0.8s infinite ease-in-out';
             });
             logo.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
+                this.style.animation = 'pulse 2s infinite ease-in-out';
             });
         });
     </script>
